@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEYLON WILDLIFE</title>
+    <link rel="stylesheet" href="./login1.css" type="text/css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/Wildlife.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/Wildlife.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#0090b9">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <img src="./images/main background - Copy.jpg" alt="elephants" class="contactusmainimage">
+    
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form" method="post" id="loginForm">
+                <h2>Login</h2>
+                <input type="text" name="username" id="username" placeholder="Username" required />
+                <input type="password" name="password" id="password" placeholder="Password" required/>
+                <button class="btn" type="submit" id="loginBtn">Sign in</button>
+                <p class="message">Not registered? <a href="#" id="showSignup">Create an account</a></p>
+            </form>
+            <form class="register-form" method="post" id="signupForm">
+                <h2>Register</h2>
+                <input type="text" name="fullname" id="fullname" placeholder="Full Name" required/>
+                <input type="text" name="newusername" id="newusername" placeholder="Username" required/>
+                <input type="email" name="email" id="email" placeholder="Email" required/>
+                 <input type="password" name="newpassword" id="newpassword" placeholder="Password" required/>
+                <button class="btn" type="submit" id="signupBtn">Create</button>
+                <p class="message">Already registered? <a href="login1.html">Sign In</a></p>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./script.js"></script>
+    <script>
+        $('.message a').click(function(){
+            $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const signInForm = document.querySelector('.login-form');
+            signInForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const username = signInForm.querySelector('#username').value;
+                const password = signInForm.querySelector('#password').value;
+
+                // Hardcoded user data
+                const hardcodedUsers = [
+                    {
+                        "username": "admin",
+                        "password": "admin",
+                        "role": "admin",
+                        "email": "admin@admin.com"
+                    },
+                    {
+                        "username": "user",
+                        "password": "user",
+                        "role": "site user",
+                        "email": "user@user.com"
+                    }
+                ];
+
+                // Get users from local storage
+                const localStorageUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+                // Combine hardcoded users and local storage users
+                const allUsers = [...hardcodedUsers, ...localStorageUsers];
+
+                const user = allUsers.find(u => u.username === username && u.password === password);
+                if (user) {
+                    // Store user details in localStorage
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    alert('Login successful!');
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Invalid username or password');
+                }
+            });
+        });
+    </script>
+
+    <footer>
+        <section class="footer-section">
+            <section class="footerlogo">
+                <img src="images/Wildlife__1_-removebg-preview.png" alt="Wildlife Logo" style="max-width: 100%;">
+            </section>
+            <p>At Ceylon Wildlife, our mission is to conserve and protect the diverse wildlife of Sri Lanka,
+                including the iconic Sri Lankan leopard, facing threats from habitat loss and human-wildlife conflict. 
+                Through collaboration with communities and conservation partners, we work towards a harmonious balance between human 
+                activities and preserving the island's natural heritage. Join us in securing a sustainable future for Sri Lanka's wildlife.</p>
+        </section>
+        <section class="footer-section">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <br>
+                <br>
+                <li><a href="index.html#aboutus">About us</a></li>
+                <br>
+                <br>
+                <li><a href="introduction.html">Introduction</a></li>
+                <br>
+                <br>
+                <li><a href="login1.html">Login</a></li>
+            </ul>
+        </section>
+        <!--- Newsletter --->
+        <section class="footer-section">
+            <p>Contact Us:</p>
+            <p>Email: Ceylonwildlife@gmail.com</p>
+            <p>Phone: 077 123 4567</p>
+        </section>
+
+        <div class="container">
+
+            <h2 id="newltr-hd">Subscribe to Our Newsletter</h2>
+        
+              <form x-data="newsletterForm()" x-on:submit.prevent="subscribe">
+                <input type="text" placeholder="Enter Email address" x-model="email" required>
+                <input type="submit" value="Subscribe">
+              </form>
+        
+          </div>
+    </footer>
+</body>
+</html>

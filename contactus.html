@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEYLON WILDLIFE</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/Wildlife.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/Wildlife.png">
+</head>
+
+<body>
+
+    <header>
+        
+        <section class="logo">
+            <img src="images/Wildlife__1_-removebg-preview.png" alt="Wildlife Logo" width="50">
+        </section>
+        <nav>
+            <section class="menu-btn" onclick="toggleNav()">&#9776;</section>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#aboutus">About us</a></li>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="DOW.html">DOW</a></li>
+                <li class="dropdown">
+                    <a href="srilankananimals.html" class="animals">Sri Lankan Animals</a>
+                        <ul class="drop-down">
+                            <li class="drop-li"><a href="./yala.html">YALA Park</a></li>
+                            <li class="drop-li"><a href="./wilpaththu.html">Wilpaththu Park</a></li>
+                            <li class="drop-li"><a href="gallery.html">Gallery</a></li>
+                        </ul>
+                </li>
+                <li><a href="Srilankanleapard.html">Sri Lankan Leopard</a></li>
+                <li><a href="contactus.html">Contact us</a></li>
+                <li><a href="login1.html" class="contactusbuttonnavbar">Login / Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section class="mainimage">
+        <img src="./images/main background.jpg " alt="elephants" class="contactusmainimage">
+    </section>
+
+
+    <!-- Rest of your content goes here -->
+    
+    <script>
+        function toggleNav() {
+            var navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+    </script>
+
+    <main>
+
+        <section class="contactussection">
+            <section class="contacttopic">
+                <h1>CONTACT US</h1>
+                <p id="contactus-paragraph">
+                    <!-- Contact us paragraph removed -->
+                </p>
+            </section>        
+
+            <section class="contactusform">
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email-input" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <section class="footer-section">
+            <section class="footerlogo">
+                <img src="images/Wildlife__1_-removebg-preview.png" alt="Wildlife Logo" style="max-width: 100%;">
+            </section>
+            <p id="footer-paragraph">
+                <!-- Footer paragraph removed -->
+            </p>
+        </section>
+        <section class="footer-section">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <br>
+                <br>
+                <li><a href="index.html#aboutus">About us</a></li>
+                <br>
+                <br>
+                <li><a href="introduction.html">Introduction</a></li>
+                <br>
+                <br>
+                <li><a href="login1.html">Login</a></li>
+            </ul>
+        </section>
+        <!--- Newsletter --->
+        <section class="footer-section">
+            <p>Contact Us:</p>
+            <p>Email: <span id="footer-email">Ceylonwildlife@gmail.com</span></p>
+            <p>Phone: <span id="footer-phone">077 123 4567</span></p>
+        </section>
+
+
+        <div class="container">
+
+            <h2 id="newltr-hd">Subscribe to Our Newsletter</h2>
+        
+              <form x-data="newsletterForm()" x-on:submit.prevent="subscribe">
+                <input type="text" placeholder="Enter Email address" x-model="email" required>
+                <input type="submit" value="Subscribe">
+              </form>
+        
+          </div>
+    </footer>
+    <script>
+        fetch('contactus.json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('contactus-paragraph').textContent = data['contactus-paragraph'];
+                document.getElementById('email').textContent = data.email;
+                document.getElementById('phone').textContent = data.phone;
+                document.getElementById('footer-paragraph').textContent = data['footer-paragraph'];
+                document.getElementById('footer-email').textContent = data['footer-email'];
+                document.getElementById('footer-phone').textContent = data['footer-phone'];
+                document.getElementById('newsletter-heading').textContent = data['newsletter-heading'];
+            })
+            .catch(error => console.error('Error fetching:', error));
+    </script>
+    
+</body>
+
+ 
+</body>
+</html>

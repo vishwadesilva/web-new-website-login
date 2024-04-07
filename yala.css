@@ -1,0 +1,611 @@
+*{
+    scroll-behavior: smooth;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #222020;
+    overflow-x: hidden;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0.7;
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; 
+    padding: 1%;
+}
+
+.logo{
+    width: 4%; 
+    
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.contactusbuttonnavbar{
+    background-color: #556B2F;
+    color: #fff;
+    padding: 10px 35px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: inline-block; 
+    margin-top: -10px; 
+    border-radius: 10px;
+}
+
+.contactusbuttonnavbar:hover{
+    background-color: #fff;
+}
+
+/*dropdown*/
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    float: right;
+    flex-wrap: wrap;
+}
+.nav-links ul{
+
+
+    align-items: center;
+    font-size: 15px;
+}
+
+.nav-links li {
+    padding-right: 50px;
+
+}
+
+.animals:hover > .drop-down{
+    display: initial;
+}
+
+.drop-down{
+
+    color: #fff;
+
+}
+
+.nav-links a {
+    text-decoration: none;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    transition: color 1s ease;
+}
+
+.nav-links a:hover {
+    text-decoration: none;
+    color: #2f6a15;
+    transition: 0.5s;
+    font-size: 18px;
+}
+
+
+.menu-btn {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+
+}
+
+.drop-down {
+    display: none;
+    position: absolute;
+    background-color: rgb(44, 44, 44);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 9px;
+    padding: 20px;
+    text-align: center;
+
+}
+.drop-down li {
+    list-style: none;
+    margin-bottom: 10px;
+    padding: 1px;
+    margin-left: 15px;
+}
+
+.drop-down a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    width: fit-content;
+}
+
+
+.dropdown:hover .drop-down {
+    display: block;
+}
+
+/* Media Query for Responsive Design */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 20px; 
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: relative;
+        width: 60%;
+        background-color: #333;
+    }
+
+    .nav-links.show, .drop-down {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .menu-btn {
+        display: block;
+        color: #fff;
+    }
+
+    .centered {
+        font-size: 30px;
+    }
+}
+/***************************END OF NAV BAR***************/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; 
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+}
+
+main {
+    position: relative;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    border: 1px solid #ddd; 
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0); 
+    filter: blur(0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.5s ease, filter 0.5s ease;
+}
+
+.overlay:hover {
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+.overlay-content {
+    color: #fff;
+    text-align: center;
+    transition: opacity 0.5s ease; 
+}
+
+.overlay:hover .overlay-content {
+    opacity: 1; 
+}
+
+
+
+.bordered-text {
+    position: relative;
+    text-align: center;
+}
+
+p {
+    font-family: 'Arial', sans-serif;
+    font-size: 4em; 
+    font-weight: bold; 
+    letter-spacing: 3px; 
+    text-transform: uppercase; 
+    color: #ffffff; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    border: 10px solid #eeff00; 
+    opacity: 0.8;
+    padding: 10px;
+}
+
+.small-text {
+    font-size: 1.0em; 
+    margin-top: -30px; 
+}
+
+.link {
+    border: none;
+    font-size: 0.8em; 
+}
+
+/* Media queries */
+/* For smaller screens like tablets */
+@media only screen and (max-width: 768px) {
+    .overlay,
+    .overlay-content {
+        display: none;
+    }
+
+    .overlay:hover,
+    .overlay:hover .overlay-content {
+        display: none;
+    }
+
+    .animal-image img,
+    .grid-container {
+        display: none;
+    }
+}
+
+/* For larger screens */
+@media only screen and (min-width: 769px) {
+    .overlay,
+    .overlay-content {
+        display: flex;
+    }
+
+    .overlay:hover,
+    .overlay:hover .overlay-content {
+        display: flex;
+    }
+
+    .animal-image img,
+    .grid-container {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .overlay:hover {
+        display: none;
+    }
+    
+    .overlay-content {
+        display: none;
+    }
+    
+    .overlay:hover .overlay-content {
+       display: none;
+    }
+
+    .overlay{
+        display: none;
+    }
+   
+}
+/* Types of animals section */
+.animal-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px; 
+}
+
+.animal-text {
+    max-width: 90%; 
+}
+
+.animal-image img {
+    width: 400px;
+    height: auto;
+    border: none;
+    margin-left: 100px;
+    border-radius: 8px;
+}
+
+.card {
+    border: 5px solid #eeff00; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 700px;
+}
+
+.animal-text {
+    padding: 20px;
+    width: 100%; 
+}
+
+h2, h4 {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+h4 {
+    color: #555;
+}
+
+/* Media queries for tablets and larger screens */
+@media only screen and (min-width: 769px) {
+
+}
+
+/* Media queries for smartphones */
+@media only screen and (max-width: 480px) {
+    .overlay,
+    .overlay-content {
+        display: none;
+    }
+
+    .overlay:hover,
+    .overlay:hover .overlay-content {
+        display: none;
+    }
+
+    
+}
+
+/* Types of animals section */
+.container2 {
+    position: relative;
+    width: 50%;
+}
+
+.overlay2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #5b5c4c;
+    opacity: 0.9;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    transition: .5s ease;
+}
+
+.container2:hover .overlay2 {
+    width: 400px;
+    margin-left: 100px;
+    border-radius: 8px;
+}
+
+.text2 {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    justify-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+/* Animals table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #252222;
+    padding: 8px;
+    text-align: center;
+    color: white;
+    font-size: larger;
+}
+
+th, td {
+    background-color: #222020;
+}
+
+/* Adventures section */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
+    width: 600px; 
+    margin: 0 auto;
+}
+
+h5 {
+    font-size: xx-large;
+    border: 5px solid #eeff00; 
+    color: white;
+    align-items: center;
+    text-align: center;
+}
+
+.grid-item {
+    position: relative;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.grid-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.grid-item:hover .overlay-text {
+    opacity: 1;
+}
+
+h4 {
+    color: white;
+}
+
+/* Contact section */
+.contact-section {
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+h4 {
+    margin: 0;
+}
+
+.contact-details {
+    font-weight: bold;
+}
+
+.contact-link {
+    color: #007BFF;
+    text-decoration: none;
+}
+@media only screen and (max-width: 480px) {
+    .overlay,
+    .overlay-content {
+        display: none;
+    }
+
+    .overlay:hover,
+    .overlay:hover .overlay-content {
+        display: none;
+    }
+
+    .container2 {
+        width: 100%;  /* Make container full width on smaller screens */
+    }
+
+    .overlay2 {
+        width: 100%;  /* Make overlay full width on smaller screens */
+        margin-left: 0;  /* Remove margin on smaller screens */
+    }
+
+    .text2 {
+        font-size: 16px;  /* Adjust font size on smaller screens */
+    }
+
+    table {
+        font-size: small;  /* Adjust font size on smaller screens */
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        width: 40%;
+    }
+}
+
+
+
+/*************************************FOOTERRR*/
+footer {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    background-color: black;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    flex-wrap: wrap;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-section ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+
+  .footer-section a {
+    color: #fff;
+  
+  }
+
+  .footer-section {
+    flex: 1;
+    margin: 10px;
+  }
+  .footerlogo {
+    flex: 1;
+    margin: 10px;
+    text-align: center;
+    align-items: center;
+    width: 25%;
+  }
+
+  .footerlogo img {
+    display: block;
+    margin: 0 auto;
+    max-width: 50%;
+    margin-left: 120%;
+    height: auto;
+  }
+ 
+  @media (max-width: 600px) {
+    footer {
+      flex-direction: column;
+    }
+
+    .footer-section {
+      flex: auto;
+      margin: 10px 0;
+    }
+    
+  } 

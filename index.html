@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEYLON WILDLIFE</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/Wildlife.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/Wildlife.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#0090b9">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+
+    <header>
+        
+        <section class="logo">
+            <img src="images/Wildlife__1_-removebg-preview.png" alt="Wildlife Logo" width="50">
+        </section>
+        <nav>
+            <section class="menu-btn" onclick="toggleNav()">&#9776;</section>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#aboutus">About us</a></li>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="DOW.html">DOW</a></li>
+                <li class="dropdown">
+                    <a href="srilankananimals.html" class="animals">Sri Lankan Animals</a>
+                        <ul class="drop-down">
+                            <li class="drop-li"><a href="./yala.html">YALA Park</a></li>
+                            <li class="drop-li"><a href="./wilpaththu.html">Wilpaththu Park</a></li>
+                            <li class="drop-li"><a href="gallery.html">Gallery</a></li>
+                        </ul>
+                </li>
+                <li><a href="Srilankanleapard.html">Sri Lankan Leopard</a></li>
+                <li><a href="contactus.html">Contact us</a></li>
+                <li><a href="login1.html" class="contactusbuttonnavbar">Login / Register</a></li>
+            </ul>
+        
+
+        </nav>
+       
+    </header>
+
+    <!-- Main Image Section -->
+    <section class="mainimage">
+        <img src="./images/main background.jpg " alt="elephants" class="responsive1">
+        <h1 class="centered">CEYLON WILDLIFE</h1>
+        <h3 class="bottom">INSIGHT ON SRI LANKAN WILDLIFE</h3>
+        <section class="overlay">
+            <img src="./images/main image front.png " alt="trunk" class="responsive2">
+         </section>
+       
+    </section>
+
+    <!-- Rest of your content goes here -->
+    
+    <script>
+        function toggleNav() {
+            var navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+    </script>
+</body>
+
+
+    <!--second image-->
+    <section class="second-image-container" id="aboutus">
+        <img src="images/3.jpg" alt="bear" class="center1secondimageresponse">
+        <section class="firstdiscription">
+            <section class="abouttextheading">
+                <p id="about-heading">About Ceylon Wildlife</p>
+            </section>
+            <section class="textflex1">
+                <section class="abouttextpara">
+                    <p id="about-para1"></p>
+                </section>
+                <section class="abouttextpara">
+                    <p id="about-para2"></p>
+                </section>
+            </section>
+            <!--row of images-->
+        <section class="row1">
+            <img src="images/mammel.jpg" class="row1-img">
+            
+            <img src="images/camelion.jpg" class="row1-img">
+        
+            <img src="images/bird.jpg" class="row1-img">              
+       </section>
+        </section>
+        
+        <section class="seconddiscription">
+            <section class="secondparahome">
+                <P id="commitment-heading">Our Commitment to Wildlife Conservation</P>
+            </section>
+            <section class="textflex2">
+                <section class="comitmentpara">
+                    <p id="commitment-para"></p>
+                </section>
+            </section>
+        </section>
+    </section>
+    
+
+
+    <footer>
+        <section class="footer-section">
+            <section class="footerlogo">
+                <img src="images/Wildlife__1_-removebg-preview.png" alt="Wildlife Logo" style="max-width: 100%;">
+            </section>
+            <p id="footer-paragraph"></p>
+        </section>
+        <section class="footer-section">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <br>
+                <br>
+                <li><a href="index.html#aboutus">About us</a></li>
+                <br>
+                <br>
+                <li><a href="introduction.html">Introduction</a></li>
+                <br>
+                <br>
+                <li><a href="login1.html">Login</a></li>
+            </ul>
+        </section>
+        <!--- Newsletter --->
+        <section class="footer-section">
+
+            <p id="contactus1"></p>
+            <p id="contactus2"></p>
+            <p id="contactus3"></p>
+        </section>
+
+        <div class="container">
+
+            <h2 id="newltr-hd">Subscribe to Our Newsletter</h2>
+        
+              <form x-data="newsletterForm()" x-on:submit.prevent="subscribe">
+                <input type="text" placeholder="Enter Email address" x-model="email" required>
+                <input type="submit" value="Subscribe">
+              </form>
+        
+          </div>
+        <script>
+            fetch('index.json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('about-heading').textContent = data['about-heading'];
+                    document.getElementById('about-para1').textContent = data['about-para1'];
+                    document.getElementById('about-para2').textContent = data['about-para2'];
+                    document.getElementById('commitment-heading').textContent = data['commitment-heading'];
+                    document.getElementById('commitment-para').textContent = data['commitment-para'];
+                    document.getElementById('footer-paragraph').textContent = data['footer-paragraph'];
+                    document.getElementById('contactus1').textContent = data['contactus1'];
+                    document.getElementById('contactus2').textContent = data['contactus2'];
+                    document.getElementById('contactus3').textContent = data['contactus3'];
+                    document.getElementById('newltr-hd').textContent = data['newsletter-heading'];
+                })
+                .catch(error => console.error('Error fetching:', error));
+        </script>
+        
+    </footer>
+    
+
+
+</body>
+</html>

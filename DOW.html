@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new semester</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/Wildlife.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/Wildlife.png">
+</head>
+
+<body>
+    <header>
+        
+        <section class="logo">
+            <img src="images/Wildlife__1_-removebg-preview.png" alt="Wildlife Logo" width="50">
+        </section>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#aboutus">About us</a></li>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="DOW.html">DOW</a></li>
+                <li class="dropdown">
+                    <a href="srilankananimals.html" class="animals">Sri Lankan Animals</a>
+                        <ul class="drop-down">
+                            <li class="drop-li"><a href="./yala.html">YALA Park</a></li>
+                            <li class="drop-li"><a href="./wilpaththu.html">Wilpaththu Park</a></li>
+                            <li class="drop-li"><a href="gallery.html">Gallery</a></li>
+                        </ul>
+                </li>
+                <li><a href="Srilankanleapard.html">Sri Lankan Leopard</a></li>
+                <li><a href="contactus.html">Contact us</a></li>
+                <li><a href="login1.html" class="contactusbuttonnavbar">Login / Register</a></li>
+            </ul>
+        
+            <section class="menu-btn" onclick="toggleNav()">&#9776;</section>
+        </nav>
+       
+    </header>
+
+
+    <!---dow back image--->
+    <section class="mainimage">
+        <img src="images/peocock.jpg" alt="peocock" class="dowback">
+        <h1 id="pagetitle1" class="centereddowpage"></h1>
+    </section>
+    
+    <!-- Rest of your content goes here -->
+    
+    <script>
+        function toggleNav() {
+            var navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+    </script>
+
+    <!------dow about us-->
+    <section class="flextextdow">
+        <section class="secondparadow">
+            <P id="title2"><span class="topic2home"><b>I</b></span>  </P>
+        </section>
+        <section class="abouttextparadow">
+            <p id="aboutparadescription"></p>
+        </section>
+    </section>
+
+    <section class="sec2-image-container">
+
+        <section class="sec2-images">
+            <img src="images/1.jpg" class="sec2-image">
+        </section>
+
+        <section class="sec2-images">
+            <img src="images/2.jpg" class="sec2-image">
+        </section>
+
+        <section class="sec2-images">
+            <img src="images/Elephant.jpg" class="sec2-image">
+        </section>
+
+    </section>
+    <section class="sec2-image-container">
+
+        <section class="sec2-images">
+            <img src="images/20.jpg" class="sec2-image">
+        </section>
+
+        <section class="sec2-images">
+            <img src="images/leo1.jpg" class="sec2-image">
+        </section>
+        
+    </section>
+
+
+
+    <section class="secondparahome">
+        <P id="title3"><span class="topic2home"><b>I</b></span>  </P>
+    </section>
+    <section class="flextextdow">
+
+        <section class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.945747289865!2d79.91723077483522!3d6.897092693102089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae250aa85489b1f%3A0xd8773339b6b43dbb!2sDepartment%20of%20Wildlife%20Conservation!5e0!3m2!1sen!2slk!4v1705319335737!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
+
+        <section id="maptextpara" class="map-text">
+
+        </section>
+
+        </section>
+    </section>
+
+
+    <footer>
+        <section class="footer-section">
+            <section class="footerlogo">
+                <img src="images/Wildlife__1_-removebg-preview.png" alt="Wildlife Logo" style="max-width: 100%;">
+            </section>
+          <p id="footerpara"></p>
+        </section>
+        <section class="footer-section">
+                
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <br>
+                <br>
+                <li><a href="index.html#aboutus">About us</a></li>
+                <br>
+                <br>
+                <li><a href="introduction.html">Introduction</a></li>
+                <br>
+                <br>
+                <li><a href="login1.html">Login</a></li>
+            </ul>
+          </section>
+
+        
+        <section class="footer-section">
+            <p id="contactus1"></p>
+            <p id="contactus2"></p>
+            <p id="contactus3"></p>
+        </section>
+
+
+
+        <div class="container">
+
+            <h2 id="newltr-hd">Subscribe to Our Newsletter</h2>
+        
+              <form x-data="newsletterForm()" x-on:submit.prevent="subscribe">
+                <input type="text" placeholder="Enter Email address" x-model="email" required>
+                <input type="submit" value="Subscribe">
+              </form>
+        
+          </div>
+
+        <script>
+            fetch('dow.json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('pagetitle1').textContent = data.pagetitle1;
+                    document.getElementById('aboutparadescription').textContent = data.aboutparadescription;
+                    document.getElementById('title2').textContent= data.title2;
+                    document.getElementById('title3').textContent= data.title3;
+                    document.getElementById('maptextpara').textContent= data.maptextpara;
+                    document.getElementById('footerpara').textContent= data.footerpara;
+                    document.getElementById('contactus1').textContent = data.contactus1;
+                    document.getElementById('contactus2').textContent = data.contactus2;
+                    document.getElementById('contactus3').textContent= data.contactus3;
+                })
+                .catch(error => console.error('Error fetching:', error));
+    
+        </script>
+    
+        
+    </footer>
+
+
+
+</body>
+</html>
+
+ 

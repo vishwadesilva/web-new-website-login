@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilpaththu</title>
+    <link rel="stylesheet" href="./wilpaththu.css" type="text/css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/Wildlife.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/Wildlife.png">
+</head>
+<body>
+    <header>
+        
+        <section class="logo">
+            <img src="./images/Wildlife__1_-removebg-preview.png" alt="Wildlife Logo" width="50">
+        </section>
+        <nav>
+            <section class="menu-btn" onclick="toggleNav()">&#9776;</section>
+            <ul class="nav-links">
+
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#aboutus">About us</a></li>
+                <li><a href="introduction.html">Introduction</a></li>
+                <li><a href="DOW.html">DOW</a></li>
+                <li class="dropdown">
+                    <a href="srilankananimals.html" class="animals">Sri Lankan Animals</a>
+                        <ul class="drop-down">
+                            <li class="drop-li"><a href="./yala.html">YALA Park</a></li>
+                            <li class="drop-li"><a href="./wilpaththu.html">Wilpaththu Park</a></li>
+                            <li class="drop-li"><a href="gallery.html">Gallery</a></li>
+                        </ul>
+                </li>
+                <li><a href="Srilankanleapard.html">Sri Lankan Leopard</a></li>
+                <li><a href="contactus.html">Contact us</a></li>
+                <li><a href="login1.html" class="contactusbuttonnavbar">Login / Register</a></li>
+            </ul>
+        
+
+        </nav>
+       
+    </header>
+
+  <!-- Main image -->
+  <section class="first">
+    <section class="overlay">
+        <section class="overlay-content">
+            <section class="bordered-text">
+                <h5>WILPATTU</h5>
+                <h5 class="small-text"> - National Park -</h5>
+            </section>
+        </section>
+    </section>
+    <section>
+        <img src="./images/python.jpg" alt="Main Image">
+    </section>
+  </section>
+
+
+  <script>
+    function toggleNav() {
+        var navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('show');
+    }
+  </script>
+
+</body>
+
+<!-- descriptionnnn-->
+
+
+
+<!--section 2-->
+<section id="animals" class="animal-section">
+    <section class="animal-text">
+        <h2>Wilpattu is Home</h2>
+        <br>
+        <h4 id="wilpaththuintro"></h4>
+    </section>
+    <section class="container2">
+        <section class="animal-image">
+            <img src="./images/1.jpg" alt="Animals Image">
+        </section>
+        <section class="overlay2">
+            <section class="text2" id= "imageoverlay">
+               
+            </section>
+        </section>
+    </section>
+</section>
+
+<section class="table">
+    <table>
+        <tr>
+            <th>Mammals</th>
+            <th>Aquatic Animals</th>
+            <th>Birds</th>
+            <th>Reptiles</th>
+        </tr>
+        <tr>
+            <td>50+</td>
+            <td>30+</td>
+            <td>100+</td>
+            <td>20+</td>
+        </tr>
+    </table>
+</section>
+
+<section id="adventures">
+    <h2>Things to Do While You're Here</h2>
+
+    <section class="grid-container">
+        <section class="grid-item">
+            <img src="./images/birdy.jpg" alt="Photo 1">
+            <section class="overlay-text">Photography</section>
+            <h4 id="photo1info"></h4>
+        </section>
+        <section class="grid-item">
+            <img src="./images/road.jpg" alt="Photo 2">
+            <section class="overlay-text">Nature Trails</section>
+            <h4 id="photo2info"></h4>
+        </section>
+        <!-- Add more grid items as needed -->
+        <section class="grid-item">
+            <img src="./images/elephonte.jpg" alt="Photo 3">
+            <section class="overlay-text">Educational Programs</section>
+            <h4 id="photo3info"></h4>
+        </section>
+        <section class="grid-item">
+            <img src="./images/bird.jpg" alt="Photo 4">
+            <section class="overlay-text">Conservation and Research Tours:</section>
+            <h4 id="photo4info"></h4>
+        </section>
+        <!-- Add more grid items as needed -->
+    </section>
+</section>
+
+
+
+    <script>
+        fetch('wilpaththu.json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('wilpaththuintro').textContent = data['wilpaththuintro'];
+                document.getElementById('imageoverlay').textContent = data['imageoverlay'];
+                document.getElementById('photo1info').textContent = data['photo1info'];
+                document.getElementById('photo2info').textContent = data['photo2info'];
+                document.getElementById('photo3info').textContent = data['photo3info'];
+                document.getElementById('photo4info').textContent = data['photo4info'];
+            })
+            .catch(error => console.error('Error fetching:', error));
+    </script>
+
+
+
+
+
+
+</body>
+</html>
